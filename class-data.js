@@ -1,3 +1,4 @@
+import {subclassFeatures,subclassCasterContribution,subclassSpellAttr,subclassExtraAttack} from './subclass-data.js';
 export const ATTRS={str:'Force',dex:'Dextérité',con:'Constitution',int:'Intelligence',wis:'Sagesse',cha:'Charisme'};
 export const SKILLS=[
  ['acrobaties','Acrobaties','dex'],['arcanes','Arcanes','int'],['athletisme','Athlétisme','str'],['discretion','Discrétion','dex'],['dressage','Dressage','wis'],['escamotage','Escamotage','dex'],['histoire','Histoire','int'],['intimidation','Intimidation','cha'],['intuition','Intuition','wis'],['investigation','Investigation','int'],['medecine','Médecine','wis'],['nature','Nature','int'],['perception','Perception','wis'],['persuasion','Persuasion','cha'],['religion','Religion','int'],['representation','Représentation','cha'],['survie','Survie','wis'],['tromperie','Tromperie','cha']
@@ -8,7 +9,7 @@ export const CLASSES={
   f(1,'Bricolage magique','Petits effets magiques sur des objets.','Imprégnez de petits objets non magiques d’effets sensoriels ou informatifs. Le nombre simultané dépend de votre Intelligence.'),
   f(1,'Incantation','Lanceur préparé basé sur l’Intelligence.','Vos attaques de sorts utilisent Intelligence + maîtrise ; votre DD de sorts vaut 8 + maîtrise + Intelligence.'),
   f(2,'Imprégnation d’objet','Infusions connues et objets imprégnés.','Vous apprenez des infusions d’artificier et pouvez maintenir un nombre limité d’objets imprégnés après un repos long.'),
-  f(3,'Spécialité d’artificier','Sous-classe à personnaliser.','Ajoutez les aptitudes propres à votre spécialité comme aptitudes personnalisées.'),
+  f(3,'Spécialité d’artificier','Votre spécialité active ses aptitudes automatiquement.','Choisissez une spécialité officielle Legacy dans Fiche & classes ; ses aptitudes apparaissent ensuite aux bons niveaux.'),
   f(6,'Expertise des outils','Maîtrise doublée avec vos outils maîtrisés.','Lorsque vous faites un test utilisant un outil dont vous avez la maîtrise, doublez votre bonus de maîtrise.'),
   f(7,'Éclair de génie','Ajoutez INT à un jet proche.','En réaction, ajoutez votre modificateur d’Intelligence à un test ou une sauvegarde de vous-même ou d’une créature proche.', 'Réaction','flash'),
   f(10,'Adepte des objets magiques','Harmonisation et fabrication améliorées.','Votre pratique des objets magiques s’améliore ; adaptez les limites d’harmonisation selon votre table.'),
@@ -43,7 +44,7 @@ export const CLASSES={
  ]},
  cleric:{name:'Clerc',hitDie:8,saves:['wis','cha'],caster:'full',spellAttr:'wis',features:[
   f(1,'Incantation','Lanceur préparé basé sur la Sagesse.','Attaque de sort = maîtrise + Sagesse ; DD = 8 + maîtrise + Sagesse.'),
-  f(1,'Domaine divin','Sous-classe et sorts de domaine.','Ajoutez les aptitudes spécifiques de votre domaine comme aptitudes personnalisées.'),
+  f(1,'Domaine divin','Votre domaine active ses aptitudes automatiquement.','Choisissez un domaine officiel Legacy dans Fiche & classes ; ses aptitudes apparaissent ensuite aux bons niveaux.'),
   f(2,'Conduit divin','Pouvoir divin avec utilisations croissantes.','Vous obtenez Renvoi des morts-vivants et un effet de domaine. Le nombre d’utilisations augmente avec le niveau.', 'Action','channel'),
   f(5,'Destruction des morts-vivants','Détruit certains morts-vivants renvoyés.','Les morts-vivants faibles qui échouent contre votre Renvoi peuvent être détruits ; le seuil augmente avec votre niveau.'),
   f(10,'Intervention divine','Demandez directement l’aide de votre divinité.','Une tentative peut produire une intervention déterminée par le MJ ; la probabilité dépend de votre niveau de clerc.'),
@@ -53,7 +54,7 @@ export const CLASSES={
   f(1,'Druidique','Langage secret des druides.','Vous connaissez le langage secret druidique et ses signes.'),
   f(1,'Incantation','Lanceur préparé basé sur la Sagesse.','Attaque de sort = maîtrise + Sagesse ; DD = 8 + maîtrise + Sagesse.'),
   f(2,'Forme sauvage','Transformations, 2 utilisations.','Prenez la forme d’une bête admissible selon votre niveau et votre cercle. Les utilisations se récupèrent au repos court ou long.', 'Action','wildshape'),
-  f(2,'Cercle druidique','Sous-classe à personnaliser.','Ajoutez les aptitudes de votre cercle comme aptitudes personnalisées.'),
+  f(2,'Cercle druidique','Votre cercle active ses aptitudes automatiquement.','Choisissez un cercle officiel Legacy dans Fiche & classes ; ses aptitudes apparaissent ensuite aux bons niveaux.'),
   f(4,'Forme sauvage améliorée','Formes plus puissantes et nage selon niveau.','Les limites de FP et de déplacement de vos formes progressent avec le niveau.'),
   f(8,'Forme sauvage améliorée','Formes avec vitesse de vol admissibles.','Votre niveau élargit encore les formes accessibles.'),
   f(18,'Jeunesse éternelle','Vieillissement fortement ralenti.','Votre corps vieillit beaucoup plus lentement.'),
@@ -121,7 +122,7 @@ export const CLASSES={
   f(1,'Attaque sournoise','Dégâts supplémentaires 1 fois par tour.','Une fois par tour, ajoutez vos dés d’Attaque sournoise quand les conditions sont réunies. Les dés progressent automatiquement avec le niveau.'),
   f(1,'Argot des voleurs','Langage et codes secrets.','Vous connaissez les signes et codes propres au milieu criminel.'),
   f(2,'Ruse','Foncer, Se désengager ou Se cacher en action bonus.','Vous pouvez accomplir certaines actions de mobilité en action bonus.'),
-  f(3,'Archétype de roublard','Sous-classe à personnaliser.','Ajoutez les aptitudes de votre archétype comme aptitudes personnalisées.'),
+  f(3,'Archétype de roublard','Votre archétype active ses aptitudes automatiquement.','Choisissez un archétype officiel Legacy dans Fiche & classes ; ses aptitudes apparaissent ensuite aux bons niveaux.'),
   f(5,'Esquive instinctive','Réduisez de moitié une attaque qui vous touche.','En réaction contre un attaquant visible, réduisez de moitié les dégâts de l’attaque.', 'Réaction'),
   f(6,'Expertise supplémentaire','Deux maîtrises supplémentaires doublées.','Choisissez deux autres maîtrises admissibles.'),
   f(7,'Esquive totale','Améliore les sauvegardes DEX pour moitié.','Sur certains effets de zone, vous ne subissez rien en cas de réussite et moitié en cas d’échec.'),
@@ -133,14 +134,14 @@ export const CLASSES={
  ]},
  sorcerer:{name:'Ensorceleur',hitDie:6,saves:['con','cha'],caster:'full',spellAttr:'cha',features:[
   f(1,'Incantation','Lanceur basé sur le Charisme.','Attaque de sort = maîtrise + Charisme ; DD = 8 + maîtrise + Charisme.'),
-  f(1,'Origine magique','Sous-classe à personnaliser.','Ajoutez les aptitudes de votre origine comme aptitudes personnalisées.'),
+  f(1,'Origine magique','Votre origine active ses aptitudes automatiquement.','Choisissez une origine officielle Legacy dans Fiche & classes ; ses aptitudes apparaissent ensuite aux bons niveaux.'),
   f(2,'Source de magie','Points de sorcellerie = niveau d’ensorceleur.','Dépensez vos points de sorcellerie pour créer des emplacements ou alimenter certaines aptitudes.', 'Ressource','sorcery'),
   f(3,'Métamagie','Modifiez vos sorts avec vos options choisies.','Choisissez vos options de métamagie et ajoutez-les comme aptitudes personnalisées si vous souhaitez leurs coûts exacts.', 'Selon option','sorcery'),
   f(20,'Restauration magique','Récupérez des points de sorcellerie au repos court.','À la fin d’un repos court, récupérez une partie de vos points de sorcellerie.')
  ]},
  warlock:{name:'Occultiste',hitDie:8,saves:['wis','cha'],caster:'pact',spellAttr:'cha',features:[
   f(1,'Magie de pacte','Emplacements de même niveau récupérés au repos court.','Le nombre et le niveau de vos emplacements de pacte sont calculés automatiquement selon votre niveau d’occultiste.', 'Ressource','pact'),
-  f(1,'Protecteur d’outre-monde','Sous-classe à personnaliser.','Ajoutez les aptitudes propres à votre protecteur comme aptitudes personnalisées.'),
+  f(1,'Protecteur d’outre-monde','Votre patron active ses aptitudes automatiquement.','Choisissez un patron officiel Legacy dans Fiche & classes ; ses aptitudes apparaissent ensuite aux bons niveaux.'),
   f(2,'Manifestations occultes','Invocations personnalisables.','Choisissez des manifestations et ajoutez-les comme aptitudes personnalisées lorsque leurs règles ont un impact direct.'),
   f(3,'Pacte','Don de pacte.','Choisissez votre pacte et ajoutez ses règles spécifiques dans vos aptitudes personnalisées.'),
   f(11,'Arcanum mystique (6)','Un sort de niveau 6 sans emplacement.','Vous gagnez un sort d’Arcanum mystique utilisable selon sa recharge.'),
@@ -152,7 +153,7 @@ export const CLASSES={
  wizard:{name:'Magicien',hitDie:6,saves:['int','wis'],caster:'full',spellAttr:'int',features:[
   f(1,'Incantation','Lanceur préparé basé sur l’Intelligence.','Attaque de sort = maîtrise + Intelligence ; DD = 8 + maîtrise + Intelligence.'),
   f(1,'Récupération arcanique','Récupérez des emplacements après un repos court.','Une fois par jour après un repos court, récupérez des niveaux d’emplacements dont la somme dépend de votre niveau de magicien.', 'Après repos court','arcaneRecovery'),
-  f(2,'Tradition arcanique','Sous-classe à personnaliser.','Ajoutez les aptitudes de votre tradition comme aptitudes personnalisées.'),
+  f(2,'Tradition arcanique','Votre tradition active ses aptitudes automatiquement.','Choisissez une tradition officielle Legacy dans Fiche & classes ; ses aptitudes apparaissent ensuite aux bons niveaux.'),
   f(18,'Maîtrise des sorts','Deux sorts de bas niveau utilisables à volonté.','Choisissez un sort de niveau 1 et un de niveau 2 répondant aux conditions ; vous pouvez les lancer sans emplacement dans les limites prévues.'),
   f(20,'Sorts de prédilection','Deux sorts de niveau 3 avec utilisations gratuites.','Choisissez deux sorts de niveau 3 que vous pouvez lancer gratuitement un nombre limité de fois avant repos.')
  ]}
@@ -167,12 +168,12 @@ export const PACT=[
 export function classLevel(character,id){return character.classes.filter(c=>c.id===id).reduce((a,c)=>a+(Number(c.level)||0),0)}
 export function totalLevel(character){return character.classes.reduce((a,c)=>a+(Number(c.level)||0),0)}
 export function proficiency(character){const l=Math.max(1,totalLevel(character));return 2+Math.floor((l-1)/4)}
-export function unlockedFeatures(character){const out=[];for(const entry of character.classes){if(!entry.id||!CLASSES[entry.id]||!entry.level)continue;for(const feature of CLASSES[entry.id].features){if(feature.level<=entry.level)out.push({...feature,classId:entry.id,className:CLASSES[entry.id].name,currentLevel:entry.level,featured:feature.level===entry.level});}}return out.sort((a,b)=>Number(b.featured)-Number(a.featured)||a.level-b.level||a.className.localeCompare(b.className,'fr'))}
-export function casterLevel(character){let n=0;for(const entry of character.classes){const c=CLASSES[entry.id];const l=Number(entry.level)||0;if(!c)continue;if(c.caster==='full')n+=l;else if(c.caster==='half')n+=Math.floor(l/2);else if(c.caster==='artificer')n+=Math.ceil(l/2);}return Math.min(20,n)}
+export function unlockedFeatures(character){const out=[];for(const entry of character.classes){if(!entry.id||!CLASSES[entry.id]||!entry.level)continue;for(const feature of CLASSES[entry.id].features){if(feature.level<=entry.level)out.push({...feature,classId:entry.id,className:CLASSES[entry.id].name,currentLevel:entry.level,featured:feature.level===entry.level,kind:'class'});}}out.push(...subclassFeatures(character));return out.sort((a,b)=>Number(b.featured)-Number(a.featured)||a.level-b.level||a.className.localeCompare(b.className,'fr'))}
+export function casterLevel(character){let n=0;for(const entry of character.classes){const c=CLASSES[entry.id];const l=Number(entry.level)||0;if(!c)continue;if(c.caster==='full')n+=l;else if(c.caster==='half')n+=Math.floor(l/2);else if(c.caster==='artificer')n+=Math.ceil(l/2);n+=subclassCasterContribution(entry);}return Math.min(20,n)}
 export function spellSlots(character){return FULL_SLOTS[casterLevel(character)]||[]}
 export function pactSlots(character){const l=classLevel(character,'warlock');return PACT[l]||{slots:0,level:0}}
-export function primarySpellAttr(character){for(const entry of character.classes){const c=CLASSES[entry.id];if(c?.spellAttr&&entry.level>0)return c.spellAttr}return character.spellcasting?.ability||'int'}
-export function attacksPerAction(character){let n=1;const f=classLevel(character,'fighter'),b=classLevel(character,'barbarian'),m=classLevel(character,'monk'),p=classLevel(character,'paladin'),r=classLevel(character,'ranger');if(f>=20)return 4;if(f>=11)return 3;if(f>=5||b>=5||m>=5||p>=5||r>=5)return 2;return n}
+export function primarySpellAttr(character){for(const entry of character.classes){const c=CLASSES[entry.id];if(c?.spellAttr&&entry.level>0)return c.spellAttr;const subAttr=subclassSpellAttr(entry);if(subAttr&&entry.level>0)return subAttr}return character.spellcasting?.ability||'int'}
+export function attacksPerAction(character){let n=1;const f=classLevel(character,'fighter'),b=classLevel(character,'barbarian'),m=classLevel(character,'monk'),p=classLevel(character,'paladin'),r=classLevel(character,'ranger');if(f>=20)return 4;if(f>=11)return 3;if(f>=5||b>=5||m>=5||p>=5||r>=5||subclassExtraAttack(character))return 2;return n}
 export function martialArtsDie(level){if(level>=17)return 10;if(level>=11)return 8;if(level>=5)return 6;return 4}
 export function sneakDice(level){return Math.max(1,Math.ceil(level/2))}
 export function rageData(level){const uses=level>=20?99:level>=17?6:level>=12?5:level>=6?4:level>=3?3:2;const bonus=level>=16?4:level>=9?3:2;return {uses,bonus}}

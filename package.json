@@ -1,1 +1,10 @@
-{"name":"compagnon-dnd5e-universel","version":"2.0.0","private":true,"type":"module","scripts":{"test":"node --test class-data.test.mjs","serve":"python3 -m http.server 8080"}}
+{
+  "name": "compagnon-dnd5e-universel",
+  "version": "3.0.1",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test class-data.test.mjs subclass-data.test.mjs",
+    "serve": "python3 -m http.server 8080"
+  }
+}

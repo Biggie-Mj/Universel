@@ -91,3 +91,22 @@ body.reduce-motion #toast:before,body.reduce-motion #toast:after{animation:none!
 .action-card.featured{border-color:#e6c66bb8;box-shadow:0 0 18px #e7c76a18;background:linear-gradient(110deg,#3b5237e8,#112b21e3)}
 .action-card.featured strong:after{content:' · NOUVEAU';font-size:9px;letter-spacing:.08em;color:var(--gold)}
 @media(max-width:520px){#sheet-body .grid2{grid-template-columns:1fr}.status{grid-template-columns:1.55fr 1fr 1fr 1.2fr}.status small{font-size:9px}}
+
+
+/* V3 — Fonds Eberron fournis, adaptés automatiquement au téléphone et à l’iPad paysage. */
+.scenery{background-image:url('./fond-accueil-portrait.webp')!important;background-size:cover!important;background-position:center center!important;background-repeat:no-repeat!important;background-color:#10251f!important}
+body[data-view=home] .scenery{background-image:url('./fond-accueil-portrait.webp')!important}
+body[data-view=combat] .scenery{background-image:url('./fond-combat-portrait.webp')!important}
+body[data-view=social] .scenery{background-image:url('./fond-social-portrait.webp')!important}
+body[data-view=journal] .scenery{background-image:url('./fond-journal-portrait.webp')!important}
+.class-config{padding:11px 12px;margin:10px 0;border:1px solid #b2986540;border-radius:14px;background:#0a1d1788}
+.class-config .source{display:block;margin:-4px 1px 8px;color:var(--gold)}
+.icon-button .icon{width:23px;height:23px}.sheet-head .icon-button .icon{width:22px;height:22px}
+.action-card .icon,.portal .icon,#dock .icon,.status .icon{filter:drop-shadow(0 0 4px #0009)}
+@media (orientation:landscape) and (min-width:700px){
+ body[data-view=home] .scenery{background-image:url('./fond-accueil-paysage.webp')!important}
+ body[data-view=combat] .scenery{background-image:url('./fond-combat-paysage.webp')!important}
+ body[data-view=social] .scenery{background-image:url('./fond-social-paysage.webp')!important}
+ body[data-view=journal] .scenery{background-image:url('./fond-journal-paysage.webp')!important}
+ .scenery{background-size:cover!important;background-position:center center!important}
+}

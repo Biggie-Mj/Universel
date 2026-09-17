@@ -1,0 +1,19 @@
+{
+  "name": "Compagnon D&D 5e — Universel",
+  "short_name": "Compagnon 5e",
+  "description": "Compagnon universel et modifiable pour personnages D&D 5e",
+  "lang": "fr",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#10251f",
+  "theme_color": "#10251f",
+  "icons": [
+    {
+      "src": "./app-icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
